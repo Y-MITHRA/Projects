@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+            {% block title %}
+
+            {% endblock %}
+        </title>
+    <!-- Additional styles specific to the login page -->
+    <style>
+        /* Add your specific styles for the login page here */
+        body {   
+            filter: contrast(80%);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            padding-top: 0%;
+            margin-top: 0%;
+            top:0%;
+        }
+        .navbar img {
+            padding: 10px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .navbar h1 {
+            color: white;
+            font-size: 40px;
+            font-style: oblique;
+            margin: 0;
+            padding: 0px 0px;
+            display: inline-block;
+            /* margin-left: 5px; */
+            text-decoration: none;
+        }
+        .header {
+            padding-top: 0%;
+        }
+        .button-container {
+            float: right;
+            margin-top: 26px;
+        }
+        .button {
+            background-color: grey;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+        .inventory-table {
+            width: 50%;
+            border-collapse: collapse;
+            padding-top: 0%;
+            margin-top: 0%;
+        }
+
+        .inventory-table th,
+        .inventory-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .inventory-table th {
+            background-color: #f2f2f2;
+        }
+
+        .header1 {
+            padding-top: 10%;
+        }
+       
+    </style>
+</head>
+<body bgcolor="pink">
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='bg1.jpeg') }}" alt="ECO-EATERS Image">
+        <h1 class="header">ECO-EATERS</h1>
+        <div class="button-container">
+            <a href="{{ url_for('food_inventory') }}" class="button">Food Inventory</a>
+            <a href="{{ url_for('profile') }}" class="button">Profile</a>
+        </div>
+    </div>
+    {% block content %}
+
+    {% endblock %} 
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            filter: contrast(80%);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:rgb(221, 188, 144);
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            padding-top: 0;
+        }
+        .navbar img {
+            padding: 10px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .navbar h1 {
+            color: white;
+            font-size: 28px;
+            font-style: italic;
+            margin: 0;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        .button-container {
+            float: right;
+            margin-top: 26px;
+        }
+        .button {
+            background-color:grey;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color:rgb(153, 142, 142);
+        }
+        .profile-container {
+            max-width: 500px;
+            text-align: center;
+            /* margin: 100px auto; */
+            background-color:rgb(218, 187, 147);
+            padding: 20%;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+
+        background-color: #333;
+        color: #f5f5f5;
+        text-align: center;
+        padding: 10px 0;
+        position: absolute;
+        margin-top: 240px;
+        width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='bg1.jpeg') }}" alt="ECO-EATERS Image">
+        <h1 class="header">ECO-EATERS</h1>
+        <div class="button-container">
+            <!-- <a href="recipe.html" class="button">Recipes</a> -->
+            <!-- <a href="{{url_for('login')}}" class="button">Login</a> -->
+            <!-- <a href="{{url_for('register')}}" class="button">Register</a> -->
+            <a href="{{ url_for('food_inventory') }}" class="button">Food Inventory</a>
+            <a href="{{ url_for('logout') }}" class="button">Logout</a>
+
+        </div>
+    </div>
+    <div class="profile-container">
+        <h1>Welcome to your profile, {{ user_name }}</h1>        
+        <h2>Profile Information</h2>
+        <p>Name: {{ user_name }}</p>
+        <p>Email: {{ user_email }}</p>
+        <p>Phone: {{ user_phone }}</p>
+        <a href="{{ url_for('edit_profile') }}" class="button">Edit Profile</a>
+    </div>
+    <footer>
+        <p>&copy; 2023 ECO-EATERS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

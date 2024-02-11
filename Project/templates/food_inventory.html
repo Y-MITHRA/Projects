@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Inventory Management</title>
+    <style>
+        /* Add these styles to your existing style.css file */
+       
+body {   
+            filter: contrast(80%);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            padding-top: 0%;
+            margin-top: 0%;
+            top:0%;
+        }
+        .navbar img {
+            padding: 10px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .navbar h1 {
+            color: white;
+            font-size: 40px;
+            font-style: oblique;
+            margin: 0;
+            padding: 0px 0px;
+            display: inline-block;
+            /* margin-left: 5px; */
+            text-decoration: none;
+        }
+        .header {
+            padding-top: 0%;
+        }
+        .button-container {
+            float: right;
+            margin-top: 26px;
+        }
+        .button {
+            background-color: grey;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+body {
+    background-color: rgb(150, 150, 28);
+}
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 12%;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.content {
+    margin-left: 260px; /* Adjust the margin to fit your menu width */
+    padding: 20px;
+    
+}
+/* .content h1{
+    op:12%;t
+} */
+
+/* Add this style to your existing style.css file */
+.delete-button {
+    color: red;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.fruits,
+.vegetables,.meat ,.beverage ,.pantry ,.snacks {
+    width: 20%;
+    height: 20%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px; /* Add margin to create space between fruits and vegetables */
+    display: inline-block;
+    align-items: center;
+    background-color: #ccc;
+}
+
+/* Remove transition for fruits image */
+/* .fruits img {
+    transition: none;
+} */
+
+.fruits:hover,
+.vegetables:hover, .meat:hover ,.beverage:hover ,.pantry:hover ,.snacks:hover {
+    transform: scale(1.1); /* Add a slight zoom effect on hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.image img {
+    max-width: 100%;
+    height: 70%;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.fruits h3,
+.vegetables h3,.meat h3 ,.beverage h3, .pantry h3, .snacks h3{
+    font-size: 20px;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='bg1.jpeg') }}" alt="ECO-EATERS Image">
+        <h1 class="header">ECO-EATERS</h1>
+        <div class="button-container">
+            <!-- <a href="{{ url_for('food_inventory') }}" class="button">Food Inventory</a> -->
+            <a href="{{ url_for('profile') }}" class="button">Profile</a>
+            <a href="{{ url_for('logout') }}" class="button">Logout</a>
+
+        </div>
+    </div>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="/recipe_suggestion">Recipes</a></li>
+            <li><a href="/products">Products</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Food Inventory</h1>
+        <div class="fruits">
+            <div class="image">
+                <a href="/fruits_inventory"><img src="{{ url_for('static', filename='fruits.jpg') }}" alt="Fruits"></a>
+                <h3>Fruits</h3>
+            </div>
+        </div>
+        <div class="vegetables">
+            <div class="image">
+                <a href="/vegetable_inventory"><img src="{{ url_for('static', filename='vegetable.jpg') }}" alt="Vegetables"></a>
+                <h3>Vegetables</h3>
+            </div>
+        </div>
+        <div class="meat">
+            <div class="image">
+                <a href="/meat_inventory"><img src="{{ url_for('static', filename='meat_seafood.jpg') }}" alt="Meat and Seafood"></a>
+                <h3>Meat and Seafood</h3>
+            </div>
+        </div>
+        <div class="beverage">
+            <div class="image">
+                <a href="/beverage_inventory"><img src="{{ url_for('static', filename='beverage.jpg') }}" alt="Beverages"></a>
+                <h3>Beverages</h3>
+            </div>
+        </div>
+        <div class="pantry">
+            <div class="image">
+                <a href="/pantry_inventory"><img src="{{ url_for('static', filename='pantry.jpg') }}" alt="Pantry Items"></a>
+                <h3>Pantry Items</h3>
+            </div>
+        </div>
+        <div class="snacks">
+            <div class="image">
+                <a href="/snacks_inventory"><img src="{{ url_for('static', filename='snacks.jpg') }}" alt="Dairy Items"></a>
+                <h3>Dairy</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+

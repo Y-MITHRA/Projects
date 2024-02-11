@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Suggestion</title>
+    <style>
+        .content{
+            margin-top: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Recipe Suggestion</h1>
+
+        {% if suggested_recipe %}
+        <div class="suggestion">
+            <h2>{{ suggested_recipe['name'] }}</h2>
+            <p>{{ suggested_recipe['description'] }}</p>
+        </div>
+        {% else %}
+        <p>No recipe suggestion available at the moment. Please try again later.</p>
+        {% endif %}
+        
+        <form action="/recipe_suggestion" method="POST">
+            <button type="submit">Get Another Suggestion</button>
+        </form>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Suggestion</title>
+    <style>
+        body{
+                       
+            background-image: url('/static/recipe.webp');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .button{
+            background-color:rgb(238, 218, 218);
+            font-weight: bold;
+            width: 85px;
+            height: 60px;
+            cursor: pointer;
+            color:black
+            
+            
+            
+        }
+        .content {
+            font-size: 20px;
+            margin-top: 150px;
+            text-align: center;
+        }
+        .suggestion {
+            margin-top: 20px;
+        }
+        .center-align-ul li{
+            list-style-position: inside;
+            text-align: center;
+            margin-left: 0;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Recipe Suggestion</h1>
+
+        {% if suggested_recipe %}
+        <div class="suggestion">
+            <h2>{{ suggested_recipe['name'] }}</h2>
+            <p>{{ suggested_recipe['description'] }}</p>
+            
+            <h3>Instructions:</h3>
+            <ul class="center-align-ul">
+                {% for instruction in suggested_recipe['instructions'] %}
+                    <li>{{ instruction }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% else %}
+        <p>No recipe suggestion available at the moment. Please try again later.</p>
+        {% endif %}
+        
+        <form action="/recipe_suggestion" method="POST">
+            <button type="submit" class="button">Recipe Suggestion</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes Inventory</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Recipes Inventory</h1>
+    
+        <div class="recipe-list">
+            {% for recipe in recipes %}
+                <div class="recipe">
+                    <h2>{{ recipe['name'] }}</h2>
+                    <p>{{ recipe['description'] }}</p>
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        {% for ingredient in recipe['ingredients'] %}
+                            <li>{{ ingredient }}</li>
+                        {% endfor %}
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <ol>
+                        {% for instruction in recipe['instructions'] %}
+                            <li>{{ instruction }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes Inventory</title>
+    <!-- Add your styles here as needed -->
+</head>
+<body>
+    <div class="content">
+        <h1>Recipes Inventory</h1>
+
+        <!-- Add a button to toggle recipe visibility -->
+        <button id="showRecipesButton">Spaghetti Carbonara</button>
+
+        <div class="recipe-list" id="recipeList" style="display: none;">
+            {% for recipe in recipes %}
+                <div class="recipe">
+                    <h2>{{ recipe['name'] }}</h2>
+                    <p>{{ recipe['description'] }}</p>
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        {% for ingredient in recipe['ingredients'] %}
+                            <li>{{ ingredient }}</li>
+                        {% endfor %}
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <ol>
+                        {% for instruction in recipe['instructions'] %}
+                            <li>{{ instruction }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("showRecipesButton").addEventListener("click", function() {
+            var recipeList = document.getElementById("recipeList");
+            if (recipeList.style.display === "none" || recipeList.style.display === "") {
+                recipeList.style.display = "block";
+            } else {
+                recipeList.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

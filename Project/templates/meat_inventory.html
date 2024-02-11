@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Inventory Management</title>
+    <style>
+        /* Add these styles to your existing style.css file */
+        body{
+            background-image: url('/static/meat_bg.webp');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+       
+
+        .content {
+            margin-left: 550px;
+            margin-top: 150px;
+            padding: 20px;
+            width: 230px;
+            background-color: #f5f5f5; /* Background color for the content area */
+            border-radius: 10px; /* Rounded corners for the content area */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle effect */
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        /* Add animation to the form */
+        form {
+            animation: slide-in 0.5s ease;
+        }
+
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Style the form elements */
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        button {
+            width: 50%;
+            padding: 5px;
+            margin-top: 5px; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Meat and Seafood Inventory</h1>
+        <form method="POST">
+            <label for="name">Meat or Seafood Name:</label>
+            <input type="text" name="name" required>
+            <label for="quantity">Kgs:</label>
+            <input type="number" name="quantity" required>
+            <label for="expiration_date">Expiration Date:</label>
+            <input type="date" name="expiration_date" required>
+            <button type="submit">Add item</button>
+        </form>
+    </div>
+</body>
+</html>

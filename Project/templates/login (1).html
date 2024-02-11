@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleframe.css') }}">
+    <style>
+        body {   
+            filter: contrast(80%);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            padding-top: 0px;
+        }
+        .navbar img {
+            padding: 10px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .navbar h1 {
+            color: white;
+            font-size: 40px;
+            font-style:oblique;
+            margin: 0;
+            padding: 10px 20px;
+            /* line-height: 50px; */
+            display: inline-block;
+            margin-left: 5px;
+            text-decoration: none;
+        }
+        .header {
+            padding-top:0px;
+
+        }
+        .button-container {
+            float: right;
+            margin-top: 26px;
+        }
+        .button {
+            background-color: grey;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+        .myform {
+            padding-top: 10%;
+            background-color: white;
+            max-width: 400px;
+            margin-left: 35% ;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            /* animation: slide-up 1s ease ; */
+        }
+        .myform input[type="email"],
+        .myform input[type="password"] {
+            width: 90%;
+            padding-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            outline: none;
+        }
+        .myform input[type="submit"] {
+            width: 50%;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .myform input[type="submit"]:hover {
+            background-color: #555;
+        }
+        
+        /* Animation keyframes for sliding */
+        /* @keyframes slide-up {
+            from {
+                transform: translateY(100%);
+                /* opacity: 0; */
+            /* }
+            to {
+                transform: translateY(50%);
+                /* opacity: 0; */
+            /* }
+        }  */
+    </style>
+</head>
+<body bgcolor="pink">
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='bg1.jpeg') }}" alt="ECO-EATERS Image">
+        <h1 class="header">ECO-EATERS</h1>
+        <div class="button-container">
+            <!-- <a href="recipe.html" class="button">Recipes</a> -->
+            <!-- <a href="{{url_for('login')}}" class="button">Login</a> -->
+            <!-- <a href="{{url_for('register')}}" class="button">Register</a> -->
+            <!-- <a href="{{ url_for('food_inventory') }}" class="button">Food Inventory</a> -->
+            <!-- <a href="{{ url_for('profile') }}" class="button">Profile</a> -->
+        </div>
+    </div>
+    <br><br><br>
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <form method="POST" class="myform">
+        <div align="center">
+            EMAIL: <input type="email" name="email" required><br><br>
+            PASSWORD: <input type="password" name="password" required><br><br>
+        </div>
+        <br><br>
+        <div align="center">
+            <input type="submit" value="LOGIN">
+        </div>
+    </form>
+</body>
+</html>

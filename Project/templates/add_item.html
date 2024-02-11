@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Inventory App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="designinve">
+    <h1 align="center">Food Inventory</h1>
+    <form method="POST" class="design">
+        <label for="item_name">Item Name:</label>
+        <input type="text" id="item_name" name="item_name" required><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br>
+
+        <label for="expiration_date">Expiration Date:</label>
+        <input type="date" id="expiration_date" name="expiration_date" required><br>
+
+        <button type="submit">Add Item</button>
+    </form>
+
+    <h2>Inventory</h2>
+    <ul>
+        {% for item in inventory %}
+            <li>{{ item[1] }} - {{ item[2] }} (Expires on {{ item[3] }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

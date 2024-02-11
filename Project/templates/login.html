@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleframe.css') }}">
+    <style>
+        .myform {
+            /* padding-top: 10%; */
+            margin-top: 30px;
+            background-color: rgb(184, 224, 186);
+            max-width: 400px;
+            height: 250px;
+            margin-left: 35% ;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            /* animation: slide-up 1s ease ; */
+        }
+        .button{
+            background-color:rgb(235, 233, 216);
+            font-weight: bold;
+            width: 70px;
+            height: 50px;
+            cursor: pointer;
+            color:black;
+            border-radius:10px ;
+        }
+    </style>
+</head>
+<body style="background-color:rgb(200, 160, 112);">
+    
+    <br><br><br>
+    <form  class="myform" method="POST">
+        <div align="center">
+            <h1>LOGIN</h1>
+            EMAIL: <input type="email" name="email" required><br><br>
+            PASSWORD: <input type="password" name="password" required><br><br>
+        </div>
+        <br><br>
+        <div align="center">
+            <input type="submit" value="LOGIN" class="button">
+        </div>
+    </form>
+    <div align="center" class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes" align="center">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+</body>
+</html>
+

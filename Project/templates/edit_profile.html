@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Edit Profile</h2>
+    <form method="POST" action="{{ url_for('profile') }}">
+        <label for="name">New Name:</label>
+        <input type="text" id="name" name="name" value="{{ user_name }}" required><br><br>
+
+        <label for="email">New Email:</label>
+        <input type="email" id="email" name="email" value="{{ user_email }}" required><br><br>
+       
+
+        <input type="submit" onclick="{{ url_for('profile') }}" value="Save Changes">
+    </form>
+</body>
+</html>

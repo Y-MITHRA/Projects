@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <style>
+        body {
+            
+            filter: contrast(80%);
+            margin: 0;
+            padding: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            padding-top: 0;
+        }
+        .navbar img {
+            padding: 10px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .navbar h1 {
+            color: white;
+            font-size: 28px;
+            font-style: italic;
+            margin: 0;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        .button-container {
+            float: right;
+            margin-top: 26px;
+        }
+        footer {
+
+            background-color: #333;
+            color: #f5f5f5;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            margin-top: 80px;
+            width: 100%;
+        }
+        .image-name { 
+        font-weight: bold; 
+        margin-top: 5px; 
+            }
+
+        .button {
+            background-color:grey;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color:rgb(153, 142, 142);
+        }
+        .container {
+            text-align: center;
+            margin-top:0px;
+            display: flex;
+            align-items: center;
+        }
+        .text-container {
+            flex: 1;
+            font-size: 25px;
+            margin-top: 40px; /* Adjust the margin to create space from the navbar */
+            text-align: left;
+            padding-top: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            animation: slide-left 1s ease;
+            background-color: rgb(162, 157, 60);
+            padding: 30px;
+            border-radius: 5px;
+        }
+        .image-container {
+            /* flex: 1; */
+            text-align: center;
+        }
+        .image {
+            max-width: 100%;
+            height: auto;
+            padding-top: 100px;
+        }
+        
+        /* Animation keyframes for sliding */
+        @keyframes slide-left {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .image {
+            top: 100px;
+            padding: 5px;
+            border-radius: 10px;
+            width: 150px;
+            height: 150px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        } 
+        .containerimage {
+            display: flex;
+            flex: 1;
+            justify-content: space-around;
+            margin: 20px;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+        } 
+        .scale:hover 
+        { 
+        transform: scale(1.5); 
+        } 
+
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='bg1.jpeg') }}" alt="ECO-EATERS Image">
+        <h1 class="header">ECO-EATERS</h1>
+        <div class="button-container">
+            <!-- <a href="recipe.html" class="button">Recipes</a> -->
+            <a href="{{url_for('login')}}" class="button">Login</a>
+            <a href="{{url_for('register')}}" class="button">Register</a>
+            <!-- <a href="#" class="button" onclick="">Food Inventory</a> -->
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div class="text-container">
+            <p>"EcoEater" is an innovative and eco-conscious application designed
+                to help users make more sustainable and environmentally
+                friendly choices when it comes to food consumption and management.
+                This application focuses on several key aspects to promote sustainable eating habits:</p>
+            <ul>
+                <li>Sustainable Recipes</li>      
+                <li>Food Inventory Management</li>
+                <li>Recipe Suggestions</li>
+       
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='food2.jpg') }}" class="image" alt="Food Image 2">
+        </div>
+    </div>
+    
+        <div class="containerimage"> 
+            <div class="image-container scale"> 
+            <img src="{{ url_for('static', filename='meat_bg.webp') }}" alt="Image 1" class="image">
+            <p class="image-name">Seafood</p> 
+            </div> 
+            <div class="image-container scale"> 
+            <img src="{{ url_for('static', filename='fruits_bg1.webp') }}" alt="Image 2" class="image"> 
+            <p class="image-name">Fruits</p>
+            </div> 
+            <div class="image-container scale"> 
+            <img src="{{ url_for('static', filename='pantry.jpg') }}" alt="Image 3" class="image"> 
+            <p class="image-name">Pantry</p>
+            </div> 
+            <div class="image-container scale"> 
+            <img src="{{ url_for('static', filename='veg_bg2.webp') }}" alt="Image 4" class="image"> 
+            <p class="image-name">Vegetables</p>
+            </div> 
+            <div class="image-container scale"> 
+            <img src="{{ url_for('static', filename='snacks.jpg') }}" alt="Image 5" class="image"> 
+            <p class="image-name">Diary</p>
+            </div> 
+           </div>
+    
+    <footer>
+        <p>&copy; 2023 ECO-EATERS. All rights reserved.</p>
+        
+    </footer>
+    </body>
+</html>
